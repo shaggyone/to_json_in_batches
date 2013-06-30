@@ -18,12 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    Post.where(...).to_json_in_batches(stream, as_json_options, batch_options)
 
-## Contributing
+stream - output stream to receive data
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+as_json_options - argument to be bassed to ActiveRecord#as_json
+
+batch_options - options to be passed to ActiveRecord#find_in_batches
+
