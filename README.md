@@ -1,6 +1,21 @@
 # ToJsonInBatches
 
-TODO: Write a gem description
+Original task is in Russian
+
+Нужно написать gem, который будет при генерации json большого объема, постепенно пушить сгенерированные куски в stream.
+Например если нужно выбрать из базы 1 млн объектов и в json их отдать, код будет таким:
+
+  Product.where("...").to_json
+
+Это отъедает огромное количество памяти и времени. Вместо этого библиотека должна доставать из базы json кусками и кусками же его отдавала в поток:
+
+  Product.where("...").to_json_in_batches
+
+Внутри:
+
+  Product.where("...").find_each do
+  # respond with batch in json
+  end
 
 ## Installation
 
